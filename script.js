@@ -70,7 +70,7 @@ const WHATSAPP_NUMERO = "524521332326";
   });
 
   /* ---------- Revelados: IO + respaldo por geometría ---------- */
-  const REV = '.rv,.rv-clip,.dr,.cat-grid,.eq-grid,.board,.split';
+  const REV = '.rv,.rv-clip,.dr,.eq-grid,.board,.split';
   const revealEls = $$(REV);
   const onReveal = (el) => {
     el.classList.add('in');
@@ -360,18 +360,6 @@ const WHATSAPP_NUMERO = "524521332326";
     const cta = $('#eq-cta'); cta.dataset.msg = 'Hola CAP, quiero cotizar este equipo: ' + sel.join(', ') + '.';
     if (WHATSAPP_NUMERO) setWA(cta);
   }));
-
-  /* ---------- Catálogos: inclinación 3D + brillo ---------- */
-  if (fine && !reduce) {
-    $$('.cover-in').forEach(c => {
-      c.addEventListener('pointermove', e => {
-        const r = c.getBoundingClientRect(), nx = (e.clientX - r.left) / r.width, ny = (e.clientY - r.top) / r.height;
-        c.style.setProperty('--ry', ((nx - .5) * 20) + 'deg'); c.style.setProperty('--rx', ((.5 - ny) * 20) + 'deg');
-        c.style.setProperty('--gx', (nx * 100) + '%'); c.style.setProperty('--gy', (ny * 100) + '%');
-      });
-      c.addEventListener('pointerleave', () => { c.style.setProperty('--ry', '0deg'); c.style.setProperty('--rx', '0deg'); });
-    });
-  }
 
   /* ---------- Horarios ---------- */
   (function hours() {
